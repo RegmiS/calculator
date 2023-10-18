@@ -1,0 +1,34 @@
+.calculator {
+    display: flex;
+    flex-direction: column;
+    margin: 1%;
+    background-color: lightblue;
+    padding: 4%;
+}
+
+.text-display{
+    display: flex;
+    width: 400px;
+    font-size: 20px;
+    font-weight: bold;
+    justify-content:left;
+    border-width: 2px;
+    border-radius: 15px;
+    border-style: solid;
+    padding: 1%;
+}
+
+.val-row {
+    display: flex;
+    gap: 5px;
+}
+
+.val-button {
+    width: 100px;
+    height: 100px;
+    padding: 0;
+    border-width: 2px;
+    border-radius: 14px;
+    margin: 1px;
+    
+}
