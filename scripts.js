@@ -14,16 +14,72 @@ const divide = (arr) => {
     return a/b;
 };
 
-let numA = -1;
-let numB = -1;
-let prevCal = -1;
+let numA = "";
+let numB = "";
+let prevCalc = "";
 let operator = "";
 
 const calcText = document.querySelector('.cur-text');
+const prevText = document.querySelector('.prev-text');
+
+function checkText(value) {
+    // if no operator, append to 1st value
+    // if operator, append to 2nd value
+    if(operator == ""){
+        numA += value;
+    }
+    else {
+        numB += value;
+    }
+    updateDisplayText();
+}
+
+function updateDisplayText(){
+    if(numB == ""){
+        calcText.innerHTML = numA + operator;
+    }
+    else {
+        calcText.innerHTML = numB;
+    }
+}
+
+function operate() {
+    let result;
+    if(operator == "+"){
+        result = add(Number(numA), Number(numB));
+    }
+    else if(operator == "-"){
+        result = subtract(Number(numA), Number(numB));
+    }
+    else if(operator == "x"){
+        result = multiply(Number(numA), Number(numB));
+    }
+    else if(operator == "/"){
+        result = divide(Number(numA), Number(numB));
+    }
+    prevCalc = result;
+    calcText.innerHTML = prevCalc;
+    prevText.innerHTML = prevCalc;
+    numA = "";
+    numB = "";
+    operator = "";
+}
+
+const addVals =  document.getElementById('add');
+addVals.onclick = () => {
+    if(numA == "" && prevCalc != ""){
+        numA = Number(prevCalc);
+        operator = "+";
+    }
+    if(numA != ""){
+        operator = "+";
+    }
+    updateDisplayText();
+};
 
 const valOne =  document.getElementById('val-1');
 valOne.onclick = () => {
-    updateTextCheckPrev("1");
+    checkText("1");
 };
 
 const valTwo =  document.getElementById('val-2');
@@ -67,42 +123,32 @@ valNine.onclick = () => {
 const clearVals =  document.getElementById('clear');
 clearVals.onclick = () => {
     calcText.innerHTML = "";
-};
-
-const equals =  document.getElementById('equals');
-equals.onclick = () => {
-    // equals function
+    numA = "None";
+    numB = "None";
+    prevCalc = "None";
 };
 
 const divideVals =  document.getElementById('divide');
 divideVals.onclick = () => {
-    // update operator 
+    // update operator
+    operator = "/";
 };
 
 const multiplyVals =  document.getElementById('multiply');
 multiplyVals.onclick = () => {
     // update operator
+    operator = "/";
 };
 
 const subtractVals =  document.getElementById('subtract');
 subtractVals.onclick = () => {
     // update operator
+    operator = "-";
 };
 
-const addVals =  document.getElementById('add');
-addVals.onclick = () => {
-    // update operator
+const equals =  document.getElementById('equals');
+equals.onclick = () => {
+    operate();
 };
 
-const updateTextCheckPrev = (updateText) => {
-    if(calcText.innerHTML == "Cur"){
-        calcText.innerHTML = updateText;
-    }
-    else{
-        calcText.innerHTML += updateText;
-    }
-};
 
-function operate(params) {
-    
-}
