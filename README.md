@@ -2,3 +2,4 @@
 
 Calculator made with raw HTML/CSS/JS
 
+## Project livepage [here](https://regmis.github.io/calculator/)
