@@ -77,6 +77,43 @@ addVals.onclick = () => {
     updateDisplayText();
 };
 
+const divideVals =  document.getElementById('divide');
+divideVals.onclick = () => {
+    if(numA == "" && prevCalc != ""){
+        numA = Number(prevCalc);
+        operator = "/";
+    }
+    if(numA != ""){
+        operator = "/";
+    }
+    updateDisplayText();
+};
+
+const multiplyVals =  document.getElementById('multiply');
+multiplyVals.onclick = () => {
+    if(numA == "" && prevCalc != ""){
+        numA = Number(prevCalc);
+        operator = "x";
+    }
+    if(numA != ""){
+        operator = "x";
+    }
+    updateDisplayText();
+};
+
+const subtractVals =  document.getElementById('subtract');
+subtractVals.onclick = () => {
+    if(numA == "" && prevCalc != ""){
+        numA = Number(prevCalc);
+        operator = "-";
+    }
+    if(numA != ""){
+        operator = "-";
+    }
+    updateDisplayText();
+};
+
+
 const valOne =  document.getElementById('val-1');
 valOne.onclick = () => {
     checkText("1");
@@ -84,40 +121,40 @@ valOne.onclick = () => {
 
 const valTwo =  document.getElementById('val-2');
 valTwo.onclick = () => {
-    updateTextCheckPrev("2");
+    checkText("2");
 };
 
 const valThree =  document.getElementById('val-3');
 valThree.onclick = () => {
-    updateTextCheckPrev("3");
+    checkText("3");
 };
 const valFour =  document.getElementById('val-4');
 valFour.onclick = () => {
-    updateTextCheckPrev("4");
+    checkText("4");
 };
 const valFive =  document.getElementById('val-5');
 valFive.onclick = () => {
-    updateTextCheckPrev("5");
+    checkText("5");
 };
 
 const valSix =  document.getElementById('val-6');
 valSix.onclick = () => {
-    updateTextCheckPrev("6");
+    checkText("6");
 };
 
 const valSeven =  document.getElementById('val-7');
 valSeven.onclick = () => {
-    updateTextCheckPrev("7");
+    checkText("7");
 };
 
 const valEight =  document.getElementById('val-8');
 valEight.onclick = () => {
-    updateTextCheckPrev("8");
+    checkText("8");
 };
 
 const valNine =  document.getElementById('val-9');
 valNine.onclick = () => {
-    updateTextCheckPrev("9");
+    checkText("9");
 };
 
 const clearVals =  document.getElementById('clear');
@@ -126,24 +163,6 @@ clearVals.onclick = () => {
     numA = "None";
     numB = "None";
     prevCalc = "None";
-};
-
-const divideVals =  document.getElementById('divide');
-divideVals.onclick = () => {
-    // update operator
-    operator = "/";
-};
-
-const multiplyVals =  document.getElementById('multiply');
-multiplyVals.onclick = () => {
-    // update operator
-    operator = "/";
-};
-
-const subtractVals =  document.getElementById('subtract');
-subtractVals.onclick = () => {
-    // update operator
-    operator = "-";
 };
 
 const equals =  document.getElementById('equals');
