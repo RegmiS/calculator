@@ -113,49 +113,13 @@ subtractVals.onclick = () => {
     updateDisplayText();
 };
 
-
-const valOne =  document.getElementById('val-1');
-valOne.onclick = () => {
-    checkText("1");
-};
-
-const valTwo =  document.getElementById('val-2');
-valTwo.onclick = () => {
-    checkText("2");
-};
-
-const valThree =  document.getElementById('val-3');
-valThree.onclick = () => {
-    checkText("3");
-};
-const valFour =  document.getElementById('val-4');
-valFour.onclick = () => {
-    checkText("4");
-};
-const valFive =  document.getElementById('val-5');
-valFive.onclick = () => {
-    checkText("5");
-};
-
-const valSix =  document.getElementById('val-6');
-valSix.onclick = () => {
-    checkText("6");
-};
-
-const valSeven =  document.getElementById('val-7');
-valSeven.onclick = () => {
-    checkText("7");
-};
-
-const valEight =  document.getElementById('val-8');
-valEight.onclick = () => {
-    checkText("8");
-};
-
-const valNine =  document.getElementById('val-9');
-valNine.onclick = () => {
-    checkText("9");
-};
+const allNumButtons = document.querySelectorAll('.test');
+console.table(allNumButtons);
+for(let i = 0; i < allNumButtons.length; i++){
+    allNumButtons[i].addEventListener('click', () => {
+        checkText(allNumButtons[i].innerHTML);
+    });
+}
 
 const clearVals =  document.getElementById('clear');
 clearVals.onclick = () => {
